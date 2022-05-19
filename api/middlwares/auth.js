@@ -1,7 +1,29 @@
 export default (req, res, next) => {
-  /**
-   * 1.- existe token?
-   * 2.- es válido?
-   * 3.- expiró?
-   */
+  const { authorization: token } = req.headers;
+
+  if (!token) {
+    return res.status(400).json({
+      msg: 'Missing token on authorization header',
+    });
+  }
+
+  try {
+    const payload = jwt.decode(token, process.env.JWT_SECRET);
+    let { expDate } = payload;
+
+    const currentDate = new Date();
+    expDate = new Date(expDate);
+
+    if (currentDate > expDate) {
+      return res.status(401).json({
+        msg: 'Expired token',
+      });
+    }
+
+    next();
+  } catch (err) {
+    return res.status(400).json({
+      msg: 'Invalid Token',
+    });
+  }
 };
