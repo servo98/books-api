@@ -17,7 +17,7 @@ routes.forEach((route) =>
   api.use(route.path, route.middlewares, route.resolver)
 );
 
-api.use((err, req, res, next) => {
+api.use((err, _, res, __) => {
   if (err instanceof SyntaxError) {
     return res.status(400).json({
       msg: 'Json inválido 😉',

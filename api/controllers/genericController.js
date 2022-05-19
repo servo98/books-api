@@ -1,4 +1,4 @@
-import database from '../utils/database';
+import database from '../utils/database.js';
 
 export default (singular, plural) => ({
   index: async (_, res) => {

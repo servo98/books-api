@@ -1,13 +1,12 @@
 //Routes
-import bookRoutes from './booksRoutes.ks';
-import authRoutes from './authRoutes.js';
 import bookRoutes from './bookRoutes.js';
+import authRoutes from './authRoutes.js';
 import clientRoutes from './clientRoutes.js';
 import rentalRoutes from './rentalRoutes.js';
 import categoryRoutes from './categoryRoutes.js';
 
 //Middlewares
-import auth from '../middlewares/auth0.js';
+import auth from '../middlewares/auth.js';
 
 export default [
   {

@@ -1,4 +1,4 @@
-import genericController from './genericController';
+import genericController from './genericController.js';
 const crud = genericController('category', 'categories');
 
 export default {

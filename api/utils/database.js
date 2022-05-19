@@ -2,7 +2,7 @@ import knex from 'knex';
 import dotenv from 'dotenv';
 
 dotenv.config({
-  path: '../../.env',
+  path: '.env',
 });
 
 const connection = {
@@ -12,8 +12,6 @@ const connection = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
 };
-
-console.log(connection);
 
 export default knex({
   client: 'pg',
