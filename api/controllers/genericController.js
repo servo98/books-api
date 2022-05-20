@@ -5,7 +5,7 @@ export default (singular, plural) => ({
     try {
       const rows = await database.select('*').from(plural);
       return res.json({
-        msg: `${plural} obtendos satisfactoriamente`,
+        msg: `${plural} obtenidos satisfactoriamente`,
         data: rows,
       });
     } catch (err) {
